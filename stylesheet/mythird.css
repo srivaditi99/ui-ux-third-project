@@ -12,6 +12,42 @@ body {
     background-color: #faf8fc;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus,
+.skip-link:active {
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    padding: 0.75rem 1rem;
+    background: #fff;
+    color: #4a1f6e;
+    border: 2px solid #4a1f6e;
+    z-index: 9999;
+    text-decoration: none;
+}
+
 /* Header and Navigation */
 header {
     background-color: rgb(154, 127, 174);
@@ -45,11 +81,14 @@ header {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, box-shadow 0.2s ease;
 }
 
-.nav-menu a:hover {
+.nav-menu a:hover,
+.nav-menu a:focus-visible {
     opacity: 0.8;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.35);
 }
 
 /* Hero Section */
@@ -63,13 +102,13 @@ header {
 .hero-content h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: rgb(154, 127, 174);
+    color: #3b2650;
 }
 
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
-    color: #555;
+    color: #3a2d44;
 }
 
 .btn-primary {
@@ -80,11 +119,19 @@ header {
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.2s ease;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus-visible {
     background-color: rgb(130, 100, 150);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(154, 127, 174, 0.35);
+}
+
+.btn-primary:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.9);
+    outline-offset: 3px;
 }
 
 /* Featured Flowers Section */
@@ -92,6 +139,15 @@ header {
     max-width: 1200px;
     margin: 4rem auto;
     padding: 0 2rem;
+}
+
+.section-intro {
+    max-width: 860px;
+    margin: 0 auto 2rem auto;
+    color: #4a3560;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    text-align: center;
 }
 
 .flowers h2 {
@@ -108,12 +164,34 @@ header {
 }
 
 .flower-card {
-    background-color: #fff;
+    position: relative;
+    min-height: 420px;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(154, 127, 174, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding-bottom: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #fff;
+}
+
+.flower-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.flower-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.15));
+    z-index: 0;
 }
 
 .flower-card:hover {
@@ -121,30 +199,38 @@ header {
     box-shadow: 0 8px 20px rgba(154, 127, 174, 0.25);
 }
 
-.flower-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+.flower-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.flower-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
 .flower-card h3 {
-    padding: 1rem 1rem 0.5rem;
-    color: rgb(154, 127, 174);
-    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-size: 1.5rem;
 }
 
 .flower-card p {
-    padding: 0 1rem 0.5rem;
-    color: #666;
-    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 .flower-card .price {
-    display: block;
+    display: inline-block;
     padding: 0.5rem 1rem;
-    color: rgb(154, 127, 174);
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 8px;
+    color: #fff;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 /* Services Section */
@@ -199,15 +285,47 @@ header {
 }
 
 .about h2 {
-    color: rgb(154, 127, 174);
+    color: #3b2650;
     font-size: 2rem;
     margin-bottom: 1.5rem;
 }
 
 .about p {
-    color: #555;
+    color: #3a2d44;
     font-size: 1rem;
     line-height: 1.8;
+}
+
+/* Intro Videos Section */
+.intro-videos {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.intro-videos h2 {
+    color: rgb(154, 127, 174);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.video-grid {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.video-card {
+    flex: 1 1 320px;
+    min-width: 320px;
+}
+
+.video-card video {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
 /* Contact Section */

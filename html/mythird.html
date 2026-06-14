@@ -3,15 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloom & Blossom - Premium Florist</title>
+    <title>Bloom & Blossom - Premium Florist | Fresh Flower Arrangements & Same-Day Delivery</title>
+    <meta name="description" content="Bloom & Blossom offers premium floral arrangements, same-day delivery, gift wrapping, and flower subscriptions. Shop roses, sunflowers, tulips, and lilies crafted for every special occasion.">
+    <meta name="keywords" content="florist, flowers, floral arrangements, same-day delivery, gift wrapping, flower subscription, bouquet">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="http://localhost/ui-ux-third-project/html/mythird.html">
+    <meta property="og:title" content="Bloom & Blossom - Premium Florist | Fresh Flower Arrangements">
+    <meta property="og:description" content="Bloom & Blossom offers premium floral arrangements, same-day delivery, gift wrapping, and flower subscriptions.">
+    <meta property="og:url" content="http://localhost/ui-ux-third-project/html/mythird.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://localhost/ui-ux-media-assets/images/flowers/roses.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bloom & Blossom - Premium Florist | Fresh Flower Arrangements">
+    <meta name="twitter:description" content="Bloom & Blossom offers premium floral arrangements, same-day delivery, gift wrapping, and flower subscriptions.">
+    <meta name="twitter:image" content="http://localhost/ui-ux-media-assets/images/flowers/roses.jpg">
     <link rel="stylesheet" href="../stylesheet/mythird.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Florist",
+        "name": "Bloom & Blossom",
+        "description": "Premium florist offering fresh bouquets, delivery, gift wrapping, and flower subscriptions.",
+        "url": "http://localhost/ui-ux-third-project/html/mythird.html",
+        "telephone": "(555) 123-4567",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Flower Lane",
+            "addressLocality": "Garden City",
+            "addressRegion": "ST",
+            "postalCode": "12345"
+        },
+        "openingHours": "Mo-Su 09:00-18:00"
+    }
+    </script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <!-- Header and Navigation -->
     <header>
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Primary navigation">
             <div class="logo">
-                <h1>🌸 Bloom & Blossom</h1>
+                <h1><span aria-hidden="true">🌸</span> Bloom & Blossom</h1>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
@@ -23,42 +55,52 @@
         </nav>
     </header>
 
+    <main id="main">
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h2>Welcome to Bloom & Blossom</h2>
             <p>Discover the beauty of fresh, handcrafted floral arrangements</p>
-            <button class="btn-primary">Shop Now</button>
+            <a href="#flowers" class="btn-primary">Shop Now</a>
         </div>
     </section>
 
     <!-- Featured Flowers Section -->
     <section id="flowers" class="flowers">
         <h2>Featured Flowers</h2>
+        <p class="section-intro">Explore our signature bouquets and fresh floral arrangements for weddings, birthdays, anniversaries, and everyday celebrations.</p>
         <div class="flower-grid">
             <div class="flower-card">
-                <img src="https://via.placeholder.com/300x300?text=Roses" alt="Red Roses">
-                <h3>Red Roses</h3>
-                <p>Classic red roses, perfect for any special occasion</p>
-                <span class="price">$49.99</span>
+                <img src="http://localhost/ui-ux-media-assets/images/flowers/roses.jpg" alt="Red roses bouquet" />
+                <div class="flower-card-content">
+                    <h3>Red Roses</h3>
+                    <p>Classic red roses, perfect for any special occasion</p>
+                    <span class="price">$49.99</span>
+                </div>
             </div>
             <div class="flower-card">
-                <img src="https://via.placeholder.com/300x300?text=Sunflowers" alt="Sunflowers">
-                <h3>Sunflowers</h3>
-                <p>Bright and cheerful sunflowers to brighten your day</p>
-                <span class="price">$39.99</span>
+                <img src="http://localhost/ui-ux-media-assets/images/flowers/sunflower.jpg" alt="Sunflower bouquet" />
+                <div class="flower-card-content">
+                    <h3>Sunflowers</h3>
+                    <p>Bright and cheerful sunflowers to brighten your day</p>
+                    <span class="price">$39.99</span>
+                </div>
             </div>
             <div class="flower-card">
-                <img src="https://via.placeholder.com/300x300?text=Tulips" alt="Tulips">
-                <h3>Tulips</h3>
-                <p>Elegant tulips in assorted vibrant colors</p>
-                <span class="price">$44.99</span>
+                <img src="http://localhost/ui-ux-media-assets/images/flowers/tulip.jpg" alt="Tulip bouquet" />
+                <div class="flower-card-content">
+                    <h3>Tulips</h3>
+                    <p>Elegant tulips in assorted vibrant colors</p>
+                    <span class="price">$44.99</span>
+                </div>
             </div>
             <div class="flower-card">
-                <img src="https://via.placeholder.com/300x300?text=Lilies" alt="Lilies">
-                <h3>Lilies</h3>
-                <p>Beautiful lilies with a delightful fragrance</p>
-                <span class="price">$54.99</span>
+                <img src="http://localhost/ui-ux-media-assets/images/flowers/lily.jpg" alt="Lily bouquet" />
+                <div class="flower-card-content">
+                    <h3>Lilies</h3>
+                    <p>Beautiful lilies with a delightful fragrance</p>
+                    <span class="price">$54.99</span>
+                </div>
             </div>
         </div>
     </section>
@@ -94,6 +136,25 @@
         </div>
     </section>
 
+    <!-- Intro Videos Section -->
+    <section class="intro-videos" aria-labelledby="intro-videos-heading">
+        <h2 id="intro-videos-heading">Intro Videos</h2>
+        <div class="video-grid">
+            <div class="video-card">
+                <video controls title="Intro video one" aria-label="Intro video one">
+                    <source src="http://localhost/ui-ux-media-assets/videos/intro/one.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <video controls title="Intro video two" aria-label="Intro video two">
+                    <source src="http://localhost/ui-ux-media-assets/videos/intro/two.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Get In Touch</h2>
@@ -105,20 +166,22 @@
         </div>
         <div class="newsletter">
             <h3>Subscribe to Our Newsletter</h3>
-            <form>
-                <input type="email" placeholder="Enter your email" required>
+            <form aria-label="Newsletter subscription form">
+                <label class="sr-only" for="newsletter-email">Email address</label>
+                <input id="newsletter-email" type="email" placeholder="Enter your email" required>
                 <button type="submit" class="btn-primary">Subscribe</button>
             </form>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Bloom & Blossom. All rights reserved.</p>
         <div class="social-links">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Twitter</a>
+            <a href="#" aria-label="Bloom & Blossom on Facebook">Facebook</a>
+            <a href="#" aria-label="Bloom & Blossom on Instagram">Instagram</a>
+            <a href="#" aria-label="Bloom & Blossom on Twitter">Twitter</a>
         </div>
     </footer>
 </body>
